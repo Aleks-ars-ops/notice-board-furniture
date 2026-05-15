@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Доска объявлений - Мебель из Минска и Москвы</title>
+    <title>Доска объявлений мебели | Пример для Геннадия</title>
     <style>
         * {
             margin: 0;
@@ -11,65 +11,80 @@
             box-sizing: border-box;
         }
         body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fb;
+            color: #1f2d3d;
+            line-height: 1.5;
         }
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 24px;
         }
-        /* Шапка */
+        /* Header */
         .header {
-            background: #2c3e50;
+            background: #1e293b;
             color: white;
-            padding: 15px 0;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
         .header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
         }
         .logo {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
+            letter-spacing: -0.5px;
         }
         .logo span {
-            color: #f39c12;
+            color: #f59e0b;
         }
         .header-buttons {
             display: flex;
-            gap: 15px;
+            gap: 12px;
         }
         .btn {
             padding: 8px 20px;
-            border-radius: 5px;
+            border-radius: 40px;
             text-decoration: none;
-            cursor: pointer;
-            border: none;
+            font-weight: 500;
+            transition: 0.2s;
+            display: inline-block;
         }
         .btn-outline {
+            border: 1px solid #94a3b8;
+            color: #e2e8f0;
             background: transparent;
-            border: 1px solid white;
-            color: white;
+        }
+        .btn-outline:hover {
+            background: #334155;
         }
         .btn-primary {
-            background: #f39c12;
-            color: #333;
+            background: #f59e0b;
+            color: #1e293b;
+            border: none;
         }
-        /* Фильтры */
+        .btn-primary:hover {
+            background: #d97706;
+        }
+        /* Filters */
         .filters {
             background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            padding: 24px;
+            margin: 32px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         .filters-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 20px;
             align-items: flex-end;
         }
         .filter-group {
@@ -78,298 +93,281 @@
         }
         .filter-group label {
             display: block;
-            font-size: 12px;
-            color: #666;
-            margin-bottom: 5px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 6px;
         }
         .filter-group select, .filter-group input {
             width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            font-size: 14px;
         }
-        .search-btn {
-            background: #2c3e50;
-            color: white;
-            padding: 8px 30px;
+        /* Cards */
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 32px 0 20px 0;
+            border-left: 5px solid #f59e0b;
+            padding-left: 16px;
         }
-        /* Карточки объявлений */
         .ads-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+            margin: 24px 0;
         }
         .ad-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: 0.2s;
+        }
+        .ad-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
         }
         .ad-image {
-            height: 200px;
-            background: #e0e0e0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
+            height: 220px;
+            background-size: cover;
+            background-position: center;
         }
         .ad-content {
-            padding: 15px;
+            padding: 20px;
         }
         .ad-title {
             font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 5px;
+            font-weight: 700;
+            margin-bottom: 8px;
         }
         .ad-price {
-            font-size: 22px;
-            color: #f39c12;
-            font-weight: bold;
-            margin: 10px 0;
+            font-size: 24px;
+            font-weight: 800;
+            color: #f59e0b;
+            margin: 12px 0;
         }
         .ad-details {
-            color: #666;
+            color: #475569;
             font-size: 14px;
-            margin-bottom: 10px;
-        }
-        .ad-tags {
             display: flex;
-            gap: 10px;
-            margin: 10px 0;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
         }
         .tag {
-            background: #e0e0e0;
-            padding: 3px 10px;
-            border-radius: 15px;
+            background: #f1f5f9;
+            padding: 4px 12px;
+            border-radius: 30px;
             font-size: 12px;
+            font-weight: 500;
         }
         .ad-buttons {
             display: flex;
-            gap: 10px;
-            margin-top: 10px;
+            gap: 12px;
+            margin-top: 16px;
         }
         .btn-small {
-            padding: 6px 12px;
-            font-size: 12px;
-            border-radius: 5px;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
             text-decoration: none;
+            text-align: center;
+            flex: 1;
         }
-        .btn-phone {
-            background: #27ae60;
-            color: white;
+        .btn-phone { background: #10b981; color: white; }
+        .btn-message { background: #3b82f6; color: white; }
+        /* Calculator */
+        .calc-card {
+            background: white;
+            border-radius: 24px;
+            padding: 28px;
+            margin: 40px 0;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
         }
-        .btn-message {
-            background: #3498db;
-            color: white;
+        .calc-row {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
         }
-        /* Админ-панель (блок для Геннадия) */
+        .calc-field {
+            flex: 1;
+        }
+        .calc-field label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .calc-field input, .calc-field select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .price-result {
+            font-size: 28px;
+            font-weight: 800;
+            color: #f59e0b;
+            background: #fffbeb;
+            padding: 16px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        /* Admin Panel */
         .admin-panel {
-            background: #ecf0f1;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 30px 0;
-            border-left: 4px solid #f39c12;
-        }
-        .admin-panel h3 {
-            margin-bottom: 15px;
-            color: #2c3e50;
+            background: #f8fafc;
+            border-radius: 24px;
+            padding: 28px;
+            margin: 40px 0;
+            border: 1px solid #e2e8f0;
         }
         .admin-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
+            margin-top: 20px;
         }
         .admin-card {
             background: white;
-            padding: 15px;
-            border-radius: 8px;
+            padding: 20px;
+            border-radius: 20px;
             flex: 1;
-            min-width: 200px;
+            min-width: 180px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+        .offer-badge {
+            background: #f59e0b20;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin: 20px 0;
         }
         .footer {
-            background: #2c3e50;
-            color: white;
+            background: #1e293b;
+            color: #cbd5e1;
             text-align: center;
-            padding: 20px;
-            margin-top: 30px;
+            padding: 24px;
+            margin-top: 48px;
         }
-        hr {
-            margin: 20px 0;
+        @media (max-width: 768px) {
+            .container { padding: 0 16px; }
+            .ads-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="container">
-            <div class="logo">Mebel<span>Board</span></div>
-            <div class="header-buttons">
-                <a href="#" class="btn btn-outline">Вход для мастеров</a>
-                <a href="#" class="btn btn-primary">➕ Подать объявление</a>
-            </div>
-        </div>
-    </div>
-
+<div class="header">
     <div class="container">
-        <!-- ФИЛЬТРЫ -->
-        <div class="filters">
-            <h3 style="margin-bottom: 15px;">Найти мебель</h3>
-            <div class="filters-grid">
-                <div class="filter-group">
-                    <label>Город</label>
-                    <select>
-                        <option>Минск</option>
-                        <option>Москва</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label>Тип услуги</label>
-                    <select>
-                        <option>С монтажом 🔧</option>
-                        <option>Без монтажа 📦</option>
-                        <option>Любой</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label>Категория</label>
-                    <select>
-                        <option>Все категории</option>
-                        <option>Кухни</option>
-                        <option>Шкафы</option>
-                        <option>Спальни</option>
-                        <option>Мягкая мебель</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label>Цена до (₽)</label>
-                    <input type="text" placeholder="Например, 100000">
-                </div>
-                <div class="filter-group">
-                    <button class="btn btn-primary search-btn">🔍 Найти</button>
-                </div>
-            </div>
+        <div class="logo">Mebel<span>Board</span></div>
+        <div class="header-buttons">
+            <a href="#" class="btn btn-outline">Вход для мастеров</a>
+            <a href="#" class="btn btn-primary">➕ Подать объявление</a>
         </div>
+    </div>
+</div>
 
-        <!-- ОБЪЯВЛЕНИЯ (ПРИМЕРЫ) -->
-        <h3>📌 Свежие объявления</h3>
-        <div class="ads-grid">
-            <!-- Карточка 1 -->
-            <div class="ad-card">
-                <div class="ad-image">🖼️ Фото кухонного гарнитура</div>
-                <div class="ad-content">
-                    <div class="ad-title">Кухонный гарнитур премиум-класса</div>
-                    <div class="ad-price">85 000 ₽</div>
-                    <div class="ad-details">📍 Минск | 🏷️ С монтажом</div>
-                    <div class="ad-tags">
-                        <span class="tag">Массив дуба</span>
-                        <span class="tag">Гранит</span>
-                        <span class="tag">Замер бесплатно</span>
-                    </div>
-                    <div class="ad-buttons">
-                        <a href="#" class="btn-small btn-phone">📞 Позвонить</a>
-                        <a href="#" class="btn-small btn-message">✉️ Написать</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Карточка 2 -->
-            <div class="ad-card">
-                <div class="ad-image">🖼️ Фото кровати-трансформера</div>
-                <div class="ad-content">
-                    <div class="ad-title">Кровать-трансформер с подъёмным механизмом</div>
-                    <div class="ad-price">24 500 ₽</div>
-                    <div class="ad-details">📍 Москва | 🏷️ Без монтажа</div>
-                    <div class="ad-tags">
-                        <span class="tag">Доставка до подъезда</span>
-                        <span class="tag">Ортопед. матрас</span>
-                    </div>
-                    <div class="ad-buttons">
-                        <a href="#" class="btn-small btn-phone">📞 Позвонить</a>
-                        <a href="#" class="btn-small btn-message">✉️ Написать</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Карточка 3 -->
-            <div class="ad-card">
-                <div class="ad-image">🖼️ Фото шкафа-купе</div>
-                <div class="ad-content">
-                    <div class="ad-title">Шкаф-купе на заказ (любые размеры)</div>
-                    <div class="ad-price">от 32 000 ₽</div>
-                    <div class="ad-details">📍 Минск | 🏷️ С монтажом</div>
-                    <div class="ad-tags">
-                        <span class="tag">Зеркальные двери</span>
-                        <span class="tag">Встроенный</span>
-                    </div>
-                    <div class="ad-buttons">
-                        <a href="#" class="btn-small btn-phone">📞 Позвонить</a>
-                        <a href="#" class="btn-small btn-message">✉️ Написать</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- БЛОК ДЛЯ ГЕННАДИЯ (что получит в админке) -->
-        <div class="admin-panel">
-            <h3>⚙️ Что вы получите как администратор (Геннадий):</h3>
-            <div class="admin-grid">
-                <div class="admin-card">
-                    <strong>➕ Управление объявлениями</strong><br>
-                    Добавлять, удалять, редактировать любые объявления.
-                </div>
-                <div class="admin-card">
-                    <strong>📊 Заявки на замер и монтаж</strong><br>
-                    Отдельная таблица с контактами клиентов.
-                </div>
-                <div class="admin-card">
-                    <strong>📥 Выгрузка в Excel</strong><br>
-                    Номера телефонов, города, типы услуг — одним нажатием.
-                </div>
-                <div class="admin-card">
-                    <strong>🏷️ Свои категории и фильтры</strong><br>
-                    Добавляете любые типы мебели и услуг.
-                </div>
-            </div>
-        </div>
-
-        <!-- КАЛЬКУЛЯТОР СТОИМОСТИ (ДЕМО) -->
-        <div style="background: white; padding: 20px; border-radius: 10px; margin: 20px 0;">
-            <h3>🧮 Пример калькулятора стоимости мебели</h3>
-            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                <div style="flex: 1;">
-                    <label>Длина (см): <input type="number" value="200" style="width: 100%; padding: 5px;"></label>
-                </div>
-                <div style="flex: 1;">
-                    <label>Ширина (см): <input type="number" value="80" style="width: 100%; padding: 5px;"></label>
-                </div>
-                <div style="flex: 1;">
-                    <label>Материал: 
-                        <select style="width: 100%; padding: 5px;">
-                            <option>ЛДСП</option>
-                            <option>МДФ</option>
-                            <option>Массив</option>
-                        </select>
-                    </label>
-                </div>
-                <div style="flex: 1;">
-                    <label>С монтажом: <input type="checkbox" style="margin-top: 20px;"></label>
-                </div>
-            </div>
-            <div style="margin-top: 15px; padding: 10px; background: #f39c12; border-radius: 5px; text-align: center; font-weight: bold;">
-                💰 Примерная стоимость: 15 400 ₽
-            </div>
-            <div style="font-size: 12px; color: #666; margin-top: 10px;">*точную цену рассчитает менеджер после замера</div>
-        </div>
-
-        <hr>
-
-        <div style="text-align: center; padding: 20px;">
-            <p>Это статичный пример — как будет выглядеть ваша доска объявлений.</p>
-            <p>После согласования сделаем полноценный работающий сайт с админ-панелью и базой данных.</p>
-            <p style="margin-top: 15px;"><strong>Стоимость разработки: 35 000 руб. под ключ</strong> | Срок: 14 дней</p>
+<div class="container">
+    <!-- Фильтры -->
+    <div class="filters">
+        <div class="filters-grid">
+            <div class="filter-group"><label>Город</label><select><option>Минск</option><option>Москва</option></select></div>
+            <div class="filter-group"><label>Тип услуги</label><select><option>С монтажом</option><option>Без монтажа</option></select></div>
+            <div class="filter-group"><label>Категория</label><select><option>Все категории</option><option>Кухни</option><option>Шкафы</option><option>Спальни</option><option>Мягкая мебель</option></select></div>
+            <div class="filter-group"><label>Цена до (₽)</label><input placeholder="100000"></div>
+            <div class="filter-group"><button class="btn btn-primary" style="width:100%">🔍 Найти</button></div>
         </div>
     </div>
 
-    <div class="footer">
-        <p>MebelBoard — доска объявлений для мебели из Минска и Москвы | Замер, доставка, монтаж</p>
+    <!-- Объявления с реальными фото (Unsplash) -->
+    <div class="section-title">📌 Свежие объявления</div>
+    <div class="ads-grid">
+        <div class="ad-card"><div class="ad-image" style="background-image: url('https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600&h=400&fit=crop');"></div><div class="ad-content"><div class="ad-title">Кухонный гарнитур премиум</div><div class="ad-price">85 000 ₽</div><div class="ad-details"><span>📍 Минск</span><span>🔧 С монтажом</span></div><div class="ad-tags"><span class="tag">Массив дуба</span><span class="tag">Гранит</span></div><div class="ad-buttons"><a href="#" class="btn-small btn-phone">📞 Позвонить</a><a href="#" class="btn-small btn-message">✉️ Написать</a></div></div></div>
+        <div class="ad-card"><div class="ad-image" style="background-image: url('https://images.unsplash.com/photo-1540518614846-7eded2c3cd34?w=600&h=400&fit=crop');"></div><div class="ad-content"><div class="ad-title">Кровать-трансформер</div><div class="ad-price">24 500 ₽</div><div class="ad-details"><span>📍 Москва</span><span>📦 Без монтажа</span></div><div class="ad-tags"><span class="tag">Ортопед. матрас</span><span class="tag">Доставка</span></div><div class="ad-buttons"><a href="#" class="btn-small btn-phone">📞 Позвонить</a><a href="#" class="btn-small btn-message">✉️ Написать</a></div></div></div>
+        <div class="ad-card"><div class="ad-image" style="background-image: url('https://images.unsplash.com/photo-1585421514280-5a1ec9926612?w=600&h=400&fit=crop');"></div><div class="ad-content"><div class="ad-title">Шкаф-купе на заказ</div><div class="ad-price">от 32 000 ₽</div><div class="ad-details"><span>📍 Минск</span><span>🔧 С монтажом</span></div><div class="ad-tags"><span class="tag">Зеркальные двери</span><span class="tag">Встроенный</span></div><div class="ad-buttons"><a href="#" class="btn-small btn-phone">📞 Позвонить</a><a href="#" class="btn-small btn-message">✉️ Написать</a></div></div></div>
+        <div class="ad-card"><div class="ad-image" style="background-image: url('https://images.unsplash.com/photo-1560448205-4d9b3e6bb6db?w=600&h=400&fit=crop');"></div><div class="ad-content"><div class="ad-title">Угловой диван</div><div class="ad-price">58 000 ₽</div><div class="ad-details"><span>📍 Москва</span><span>🔧 С монтажом</span></div><div class="ad-tags"><span class="tag">Велюр</span><span class="tag">Механизм "Еврокнижка"</span></div><div class="ad-buttons"><a href="#" class="btn-small btn-phone">📞 Позвонить</a><a href="#" class="btn-small btn-message">✉️ Написать</a></div></div></div>
     </div>
+
+    <!-- Калькулятор как в портфолио (динамический) -->
+    <div class="calc-card">
+        <h3 style="margin-bottom: 16px;">🧮 Калькулятор стоимости мебели</h3>
+        <div class="calc-row">
+            <div class="calc-field"><label>Длина (см)</label><input type="number" id="length" value="200" step="10"></div>
+            <div class="calc-field"><label>Ширина (см)</label><input type="number" id="width" value="80" step="10"></div>
+            <div class="calc-field"><label>Материал</label><select id="material"><option value="1">ЛДСП</option><option value="1.5">МДФ</option><option value="2.5">Массив дуба</option></select></div>
+        </div>
+        <div class="calc-row">
+            <div class="calc-field"><label>С монтажом</label><select id="assembly"><option value="1">Нет</option><option value="1.25">Да (+25%)</option></select></div>
+            <div class="calc-field"><label>Тип изделия</label><select id="productType"><option value="1">Стандарт</option><option value="1.2">Премиум</option></select></div>
+        </div>
+        <div class="price-result" id="calcPrice">💰 Примерная стоимость: 0 ₽</div>
+        <div class="filters-grid" style="margin-top: 16px; justify-content: space-between;">
+            <div class="filter-group"><label>Пример по вашим размерам</label><input id="totalPriceDisplay" value="Сейчас: 15 400 ₽" disabled></div>
+            <div><button class="btn btn-primary" onclick="updatePrice()">Пересчитать</button></div>
+        </div>
+        <div style="font-size: 13px; color: #475569; margin-top: 16px;">*Окончательная цена после замера мастера</div>
+    </div>
+
+    <!-- Админ-панель и предложение с портфолио -->
+    <div class="admin-panel">
+        <h3>⚙️ Что вы получите как администратор</h3>
+        <div class="admin-grid">
+            <div class="admin-card"><strong>➕ Управление объявлениями</strong><br>Добавлять, удалять, редактировать.</div>
+            <div class="admin-card"><strong>📊 Заявки на замер и монтаж</strong><br>Отдельная таблица с контактами.</div>
+            <div class="admin-card"><strong>📥 Выгрузка в Excel</strong><br>Номера телефонов, города, услуги.</div>
+            <div class="admin-card"><strong>🏷️ Свои категории и фильтры</strong><br>Меняете под свои типы мебели.</div>
+        </div>
+    </div>
+
+    <!-- Блок с вашим портфолио и скидкой (честно и красиво) -->
+    <div class="offer-badge">
+        <div><strong>🎁 Первый заказ на сайт — скидка 15%</strong><br>
+        Вы получите полностью работающую доску объявлений с админкой и калькулятором. Вот пример моих работ: <a href="https://aleks-ars-ops.github.io/PORTFOLLIO1/" target="_blank" style="color:#f59e0b;">Портфолио</a>.
+        </div>
+        <div><span style="font-size: 28px; font-weight:800;">29 750 ₽</span> <span style="text-decoration:line-through; color:#94a3b8;">35 000 ₽</span></div>
+    </div>
+    <div style="text-align: center; margin: 20px 0 32px;">
+        <a href="#" class="btn btn-primary" style="padding: 14px 32px; font-size: 18px;">🚀 Заказать сайт</a>
+    </div>
+</div>
+
+<div class="footer">
+    <p>Доска объявлений для мебели | Минск | Москва | Замер, доставка, монтаж</p>
+    <p style="margin-top: 8px; font-size: 13px;">Пример для Геннадия — после утверждения сделаем полноценный сайт под ваш контент</p>
+</div>
+
+<script>
+    function updatePrice() {
+        let length = parseFloat(document.getElementById('length').value) || 0;
+        let width = parseFloat(document.getElementById('width').value) || 0;
+        let material = parseFloat(document.getElementById('material').value);
+        let assembly = parseFloat(document.getElementById('assembly').value);
+        let productType = parseFloat(document.getElementById('productType').value);
+        let area = (length * width) / 10000;
+        let base = area * 8500;
+        let price = base * material * productType * assembly;
+        if (price < 5000) price = 5000;
+        let resultElement = document.getElementById('calcPrice');
+        resultElement.innerHTML = `💰 Примерная стоимость: ${Math.round(price).toLocaleString()} ₽`;
+        let totalPriceDisplay = document.getElementById('totalPriceDisplay');
+        if (totalPriceDisplay) totalPriceDisplay.value = `Сейчас: ${Math.round(price).toLocaleString()} ₽`;
+    }
+    document.getElementById('length').addEventListener('input', updatePrice);
+    document.getElementById('width').addEventListener('input', updatePrice);
+    document.getElementById('material').addEventListener('change', updatePrice);
+    document.getElementById('assembly').addEventListener('change', updatePrice);
+    document.getElementById('productType').addEventListener('change', updatePrice);
+    updatePrice();
+</script>
 </body>
 </html>
