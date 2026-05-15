@@ -115,7 +115,7 @@
         }
         .ads-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 24px;
             margin: 24px 0;
         }
@@ -180,45 +180,6 @@
         }
         .btn-phone { background: #10b981; color: white; }
         .btn-message { background: #3b82f6; color: white; }
-        /* Calculator */
-        .calc-card {
-            background: white;
-            border-radius: 24px;
-            padding: 28px;
-            margin: 40px 0;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
-        }
-        .calc-row {
-            display: flex;
-            gap: 24px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-        .calc-field {
-            flex: 1;
-        }
-        .calc-field label {
-            font-weight: 600;
-            display: block;
-            margin-bottom: 8px;
-        }
-        .calc-field input, .calc-field select {
-            width: 100%;
-            padding: 12px;
-            border-radius: 16px;
-            border: 1px solid #cbd5e1;
-        }
-        .price-result {
-            font-size: 28px;
-            font-weight: 800;
-            color: #f59e0b;
-            background: #fffbeb;
-            padding: 16px;
-            border-radius: 20px;
-            text-align: center;
-            margin-top: 20px;
-        }
         /* Admin Panel */
         .admin-panel {
             background: #f8fafc;
@@ -240,6 +201,44 @@
             flex: 1;
             min-width: 180px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+        /* New: Заявки и Excel блок */
+        .leads-excel-block {
+            background: linear-gradient(135deg, #fef9e3 0%, #fdf4e6 100%);
+            border-radius: 24px;
+            padding: 28px;
+            margin: 40px 0;
+            border: 1px solid #ffe5b4;
+        }
+        .leads-excel-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        .leads-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .leads-card h4 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: #1e293b;
+        }
+        .icon-emoj {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+        .price-badge {
+            font-size: 28px;
+            font-weight: 800;
+            color: #f59e0b;
         }
         .offer-badge {
             background: #f59e0b20;
@@ -289,52 +288,70 @@
         </div>
     </div>
 
-    <!-- Объявления с реальными фото (Unsplash) -->
+    <!-- Объявления с реальными фото (ваши ссылки) -->
     <div class="section-title">📌 Свежие объявления</div>
     <div class="ads-grid">
-        <div class="ad-card"><div class="ad-image" style="background-image: url('https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600&h=400&fit=crop');"></div><div class="ad-content"><div class="ad-title">Кухонный гарнитур премиум</div><div class="ad-price">85 000 ₽</div><div class="ad-details"><span>📍 Минск</span><span>🔧 С монтажом</span></div><div class="ad-tags"><span class="tag">Массив дуба</span><span class="tag">Гранит</span></div><div class="ad-buttons"><a href="#" class="btn-small btn-phone">📞 Позвонить</a><a href="#" class="btn-small btn-message">✉️ Написать</a></div></div></div>
-        <div class="ad-card"><div class="ad-image" style="background-image: url('https://images.unsplash.com/photo-1540518614846-7eded2c3cd34?w=600&h=400&fit=crop');"></div><div class="ad-content"><div class="ad-title">Кровать-трансформер</div><div class="ad-price">24 500 ₽</div><div class="ad-details"><span>📍 Москва</span><span>📦 Без монтажа</span></div><div class="ad-tags"><span class="tag">Ортопед. матрас</span><span class="tag">Доставка</span></div><div class="ad-buttons"><a href="#" class="btn-small btn-phone">📞 Позвонить</a><a href="#" class="btn-small btn-message">✉️ Написать</a></div></div></div>
-        <div class="ad-card"><div class="ad-image" style="background-image: url('https://images.unsplash.com/photo-1585421514280-5a1ec9926612?w=600&h=400&fit=crop');"></div><div class="ad-content"><div class="ad-title">Шкаф-купе на заказ</div><div class="ad-price">от 32 000 ₽</div><div class="ad-details"><span>📍 Минск</span><span>🔧 С монтажом</span></div><div class="ad-tags"><span class="tag">Зеркальные двери</span><span class="tag">Встроенный</span></div><div class="ad-buttons"><a href="#" class="btn-small btn-phone">📞 Позвонить</a><a href="#" class="btn-small btn-message">✉️ Написать</a></div></div></div>
-        <div class="ad-card"><div class="ad-image" style="background-image: url('https://images.unsplash.com/photo-1560448205-4d9b3e6bb6db?w=600&h=400&fit=crop');"></div><div class="ad-content"><div class="ad-title">Угловой диван</div><div class="ad-price">58 000 ₽</div><div class="ad-details"><span>📍 Москва</span><span>🔧 С монтажом</span></div><div class="ad-tags"><span class="tag">Велюр</span><span class="tag">Механизм "Еврокнижка"</span></div><div class="ad-buttons"><a href="#" class="btn-small btn-phone">📞 Позвонить</a><a href="#" class="btn-small btn-message">✉️ Написать</a></div></div></div>
+        <div class="ad-card"><div class="ad-image" style="background-image: url('https://kuhnivspb.com/wp-content/uploads/2026/02/kuhnya-23-500x354.jpg'); background-size: cover;"></div><div class="ad-content"><div class="ad-title">Кухонный гарнитур премиум</div><div class="ad-price">85 000 ₽</div><div class="ad-details"><span>📍 Минск</span><span>🔧 С монтажом</span></div><div class="ad-tags"><span class="tag">Массив дуба</span><span class="tag">Гранит</span></div><div class="ad-buttons"><a href="#" class="btn-small btn-phone">📞 Позвонить</a><a href="#" class="btn-small btn-message">✉️ Написать</a></div></div></div>
+        
+        <div class="ad-card"><div class="ad-image" style="background-image: url('https://gutermebel.com/assets/cache_image/products/59/1_442x326_dde.jpg'); background-size: cover;"></div><div class="ad-content"><div class="ad-title">Кровать-трансформер</div><div class="ad-price">24 500 ₽</div><div class="ad-details"><span>📍 Москва</span><span>📦 Без монтажа</span></div><div class="ad-tags"><span class="tag">Ортопед. матрас</span><span class="tag">Доставка</span></div><div class="ad-buttons"><a href="#" class="btn-small btn-phone">📞 Позвонить</a><a href="#" class="btn-small btn-message">✉️ Написать</a></div></div></div>
+        
+        <div class="ad-card"><div class="ad-image" style="background-image: url('https://www.spb.bestmebelshop.ru/upload/resize_cache/iblock/94a/1000_750_1cb3ed90bb4b099ee9292aa8dda3584d7/94a9158d1faeaa21dd8d5b70f3fbdde0.jpg'); background-size: cover;"></div><div class="ad-content"><div class="ad-title">Шкаф-купе на заказ</div><div class="ad-price">от 32 000 ₽</div><div class="ad-details"><span>📍 Минск</span><span>🔧 С монтажом</span></div><div class="ad-tags"><span class="tag">Зеркальные двери</span><span class="tag">Встроенный</span></div><div class="ad-buttons"><a href="#" class="btn-small btn-phone">📞 Позвонить</a><a href="#" class="btn-small btn-message">✉️ Написать</a></div></div></div>
+        
+        <div class="ad-card"><div class="ad-image" style="background-image: url('https://optim.tildacdn.com/stor3665-6139-4964-a336-396333306631/-/contain/569x569/center/center/-/format/webp/40746872.jpg.webp'); background-size: cover;"></div><div class="ad-content"><div class="ad-title">Угловой диван</div><div class="ad-price">58 000 ₽</div><div class="ad-details"><span>📍 Москва</span><span>🔧 С монтажом</span></div><div class="ad-tags"><span class="tag">Велюр</span><span class="tag">Механизм "Еврокнижка"</span></div><div class="ad-buttons"><a href="#" class="btn-small btn-phone">📞 Позвонить</a><a href="#" class="btn-small btn-message">✉️ Написать</a></div></div></div>
     </div>
 
-    <!-- Калькулятор как в портфолио (динамический) -->
-    <div class="calc-card">
-        <h3 style="margin-bottom: 16px;">🧮 Калькулятор стоимости мебели</h3>
-        <div class="calc-row">
-            <div class="calc-field"><label>Длина (см)</label><input type="number" id="length" value="200" step="10"></div>
-            <div class="calc-field"><label>Ширина (см)</label><input type="number" id="width" value="80" step="10"></div>
-            <div class="calc-field"><label>Материал</label><select id="material"><option value="1">ЛДСП</option><option value="1.5">МДФ</option><option value="2.5">Массив дуба</option></select></div>
-        </div>
-        <div class="calc-row">
-            <div class="calc-field"><label>С монтажом</label><select id="assembly"><option value="1">Нет</option><option value="1.25">Да (+25%)</option></select></div>
-            <div class="calc-field"><label>Тип изделия</label><select id="productType"><option value="1">Стандарт</option><option value="1.2">Премиум</option></select></div>
-        </div>
-        <div class="price-result" id="calcPrice">💰 Примерная стоимость: 0 ₽</div>
-        <div class="filters-grid" style="margin-top: 16px; justify-content: space-between;">
-            <div class="filter-group"><label>Пример по вашим размерам</label><input id="totalPriceDisplay" value="Сейчас: 15 400 ₽" disabled></div>
-            <div><button class="btn btn-primary" onclick="updatePrice()">Пересчитать</button></div>
-        </div>
-        <div style="font-size: 13px; color: #475569; margin-top: 16px;">*Окончательная цена после замера мастера</div>
-    </div>
-
-    <!-- Админ-панель и предложение с портфолио -->
-    <div class="admin-panel">
-        <h3>⚙️ Что вы получите как администратор</h3>
-        <div class="admin-grid">
-            <div class="admin-card"><strong>➕ Управление объявлениями</strong><br>Добавлять, удалять, редактировать.</div>
-            <div class="admin-card"><strong>📊 Заявки на замер и монтаж</strong><br>Отдельная таблица с контактами.</div>
-            <div class="admin-card"><strong>📥 Выгрузка в Excel</strong><br>Номера телефонов, города, услуги.</div>
-            <div class="admin-card"><strong>🏷️ Свои категории и фильтры</strong><br>Меняете под свои типы мебели.</div>
+    <!-- БЛОК: ЗАЯВКИ НА ЗАМЕР И МОНТАЖ + ВЫГРУЗКА EXCEL (ОТДЕЛЬНАЯ ТАБЛИЦА) -->
+    <div class="leads-excel-block">
+        <h3 style="font-size: 26px; margin-bottom: 8px;">📋 Управление заявками</h3>
+        <p style="margin-bottom: 16px; opacity: 0.8;">Все заявки с сайта — в одной таблице. Выгружайте в Excel одним кликом.</p>
+        <div class="leads-excel-grid">
+            <div class="leads-card">
+                <div class="icon-emoj">📊</div>
+                <h4>Заявки на замер и монтаж</h4>
+                <p>Отдельная таблица с контактами, городом, типом услуги и комментариями клиента.</p>
+                <span class="tag">Входит в пакет "Под ключ"</span>
+            </div>
+            <div class="leads-card">
+                <div class="icon-emoj">📥</div>
+                <h4>Выгрузка в Excel</h4>
+                <p>Номера телефонов, города, типы услуг — выгружаете нажатием одной кнопки. Работает как CRM.</p>
+                <span class="tag">Удобно для отдела продаж</span>
+            </div>
         </div>
     </div>
 
-    <!-- Блок с вашим портфолио и скидкой (честно и красиво) -->
+    <!-- Калькулятор (упрощённая демо-версия) -->
+    <div class="admin-panel" style="margin-top: 0;">
+        <h3>🧮 Калькулятор стоимости мебели</h3>
+        <p>Пример расчёта цены по размерам и материалу (работает в реальном времени)</p>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap; margin: 20px 0;">
+            <div><label>Длина (см): <input type="number" id="length" value="200" style="width: 100px;"></label></div>
+            <div><label>Ширина (см): <input type="number" id="width" value="80" style="width: 100px;"></label></div>
+            <div><label>Материал: 
+                <select id="material">
+                    <option value="1">ЛДСП</option>
+                    <option value="1.5">МДФ</option>
+                    <option value="2">Массив</option>
+                </select>
+            </label></div>
+            <div><label>Монтаж: 
+                <select id="assembly">
+                    <option value="1">Нет</option>
+                    <option value="1.25">Да</option>
+                </select>
+            </label></div>
+        </div>
+        <div class="price-badge" id="calcPrice">💰 0 ₽</div>
+        <div style="font-size: 13px; margin-top: 12px;">*окончательная цена после замера мастера</div>
+    </div>
+
+    <!-- Предложение со скидкой и ссылкой на портфолио -->
     <div class="offer-badge">
-        <div><strong>🎁 Первый заказ на сайт — скидка 15%</strong><br>
-        Вы получите полностью работающую доску объявлений с админкой и калькулятором. Вот пример моих работ: <a href="https://aleks-ars-ops.github.io/PORTFOLLIO1/" target="_blank" style="color:#f59e0b;">Портфолио</a>.
+        <div><strong>🎁 Индивидуальная разработка под ваш бизнес</strong><br>
+        Работаем на PHP+MySQL (надёжно, просто, без ежемесячных платежей за конструкторы). Смотрите примеры сайтов в <a href="https://aleks-ars-ops.github.io/PORTFOLLIO1/" target="_blank" style="color:#f59e0b;">портфолио</a>.
         </div>
-        <div><span style="font-size: 28px; font-weight:800;">29 750 ₽</span> <span style="text-decoration:line-through; color:#94a3b8;">35 000 ₽</span></div>
+        <div><span class="price-badge" style="font-size: 28px;">29 750 ₽</span> <span style="text-decoration:line-through; color:#94a3b8;">35 000 ₽</span><br>
+        <span style="font-size: 14px;">скидка 15% на пакет "Под ключ"</span></div>
     </div>
     <div style="text-align: center; margin: 20px 0 32px;">
         <a href="#" class="btn btn-primary" style="padding: 14px 32px; font-size: 18px;">🚀 Заказать сайт</a>
@@ -343,7 +360,6 @@
 
 <div class="footer">
     <p>Доска объявлений для мебели | Минск | Москва | Замер, доставка, монтаж</p>
-    <p style="margin-top: 8px; font-size: 13px;">Пример для Геннадия — после утверждения сделаем полноценный сайт под ваш контент</p>
 </div>
 
 <script>
@@ -352,21 +368,16 @@
         let width = parseFloat(document.getElementById('width').value) || 0;
         let material = parseFloat(document.getElementById('material').value);
         let assembly = parseFloat(document.getElementById('assembly').value);
-        let productType = parseFloat(document.getElementById('productType').value);
         let area = (length * width) / 10000;
         let base = area * 8500;
-        let price = base * material * productType * assembly;
+        let price = base * material * assembly;
         if (price < 5000) price = 5000;
-        let resultElement = document.getElementById('calcPrice');
-        resultElement.innerHTML = `💰 Примерная стоимость: ${Math.round(price).toLocaleString()} ₽`;
-        let totalPriceDisplay = document.getElementById('totalPriceDisplay');
-        if (totalPriceDisplay) totalPriceDisplay.value = `Сейчас: ${Math.round(price).toLocaleString()} ₽`;
+        document.getElementById('calcPrice').innerHTML = `💰 ${Math.round(price).toLocaleString()} ₽`;
     }
     document.getElementById('length').addEventListener('input', updatePrice);
     document.getElementById('width').addEventListener('input', updatePrice);
     document.getElementById('material').addEventListener('change', updatePrice);
     document.getElementById('assembly').addEventListener('change', updatePrice);
-    document.getElementById('productType').addEventListener('change', updatePrice);
     updatePrice();
 </script>
 </body>
